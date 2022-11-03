@@ -107,11 +107,87 @@ nav {
 	color: white;
 	box-shadow: var(--shadow);
 	font-size: 14px;
+	transition: all 0.25s ease-in-out;
 }
 
 .nav-upload:hover {
 	background-color: #20914f;
 }
+
+.upload-modal {
+	display: grid;
+	place-items: center;
+	position: absolute;
+	z-index: 19;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.upload-modal-inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	box-shadow: var(--shadow);
+	padding: 0 1.5rem 1.25rem;
+	background: #f2f2f2;
+	transform: translateY(-20%);
+
+	h3 {
+		align-self: flex-start;
+		font-weight: 500;
+		margin-bottom: 0.25rem;
+	}
+	.input-container {
+		margin: 0.25rem auto;
+		p {
+			font-size: 12px;
+			font-weight: 500;
+			margin: 0;
+		}
+		input {
+			outline: none;
+			padding: 0.5rem 0.75rem;
+			height: 2.5rem;
+			border: 1px solid gray;
+			border-radius: 8px;
+			font-size: 12px;
+		}
+	}
+	.upload-options {
+		border-radius: 10px;
+		background: lightblue;
+	}
+	.button-container {
+		align-self: flex-end;
+		margin-top: 1rem;
+		button {
+			font-size: 13px;
+		}
+	}
+
+}
+
+.cancelBtn {
+	color: rgb(165, 165, 165);
+	background: none;
+	border: none;
+	outline: none;
+	font-size: 14px;
+	&:hover,
+	&:focus,
+	&:focus-visible {
+		border: none;
+		outline: none;
+	}
+}
+
 
 #gallery-container {
   margin-top: 2rem;
@@ -132,7 +208,7 @@ nav {
 		}
 		&:hover .card-details {
       opacity: 1;
-			top: 80%;
+			top: 90%;
     }
 
     .card-overlay {

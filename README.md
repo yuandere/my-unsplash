@@ -82,6 +82,7 @@ $ npm start
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
 - [masonry](https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/)
+- [CRUD postgresql express](https://blog.logrocket.com/crud-rest-api-node-js-express-postgresql/)
 
 ## Contact
 
