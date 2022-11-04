@@ -3,17 +3,25 @@ import axios from 'axios';
 import useOnclickOutside from 'react-cool-onclickoutside';
 import Card from './components/Card';
 import UploadModal from './components/UploadModal';
+import ConfirmModal from './components/ConfirmModal';
 import './App.css';
 
 function App() {
 	const [imageLocations, setImageLocations] = useState([]);
 	const [searchTerm, setSearchTerm] = useState('');
-	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isUploadModalOpen, setisUploadModalOpen] = useState(false);
 	const [imageLabel, setImageLabel] = useState('');
 	const [imageURL, setImageURL] = useState('');
-	const modalRef = useOnclickOutside(() => {
-		setIsModalOpen(false);
+	const [fileToUpload, setFileToUpload] = useState(null);
+	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+	const [confirmStatus, setConfirmStatus] = useState(null);
+	const [deletePassword, setDeletePassword] = useState(null);
+	const uploadModalRef = useOnclickOutside(() => {
+		setisUploadModalOpen(false);
 	});
+	const confirmModalRef = useOnclickOutside(() => {
+		setIsConfirmModalOpen(false);
+	})
 
 	const fetcher = async () => {
 		axios.get('http://localhost:5000/fetchgallery').then((res) => {
@@ -24,30 +32,52 @@ function App() {
 
 	const handleUpload = () => {
 		console.log(uploadInput.files[0]);
+		setFileToUpload(uploadInput.files[0]);
 	};
 
 	const submitPhoto = async () => {
-		axios
-			.post('http://localhost:5000/images', {
-				// FormData({ form: 'data' }), {
-				headers: {
-					'Content-Type': 'multipart/form-data'
-				},
-				data: {
-					tag: imageLabel,
-					url: imageURL,
-				},
-			})
-			.then((res) => {
-				console.log('success:', res.data);
-			})
-			.catch((err) => {
-				console.log('error:', err);
-			});
+		if (fileToUpload) {
+			const formData = new FormData();
+			formData.append('picture', fileToUpload);
+			formData.append('tag', 'test');
+			console.log(formData);
+			axios
+				.post('http://localhost:5000/imagefile', formData, {
+					headers: {
+						'Content-Type': 'multipart/form-data',
+					},
+				})
+				.then((res) => {
+					console.log('success:', res.data);
+					setisUploadModalOpen(false);
+					setIsConfirmModalOpen(true);
+				})
+				.catch((err) => {
+					console.log('error:', err);
+					setIsConfirmModalOpen(true);
+				});
+		} else {
+			axios
+				.post('http://localhost:5000/imageurl', {
+					data: {
+						tag: imageLabel,
+						url: imageURL,
+					},
+				})
+				.then((res) => {
+					console.log('success:', res.data);
+					setisUploadModalOpen(false);
+					setIsConfirmModalOpen(true);
+				})
+				.catch((err) => {
+					console.log('error:', err);
+					setIsConfirmModalOpen(true);
+				});
+		}
 	};
 
 	useEffect(() => {
-		if (!isModalOpen) {
+		if (!isUploadModalOpen) {
 			return;
 		}
 		const uploadInput = document.getElementById('uploadInput');
@@ -63,7 +93,7 @@ function App() {
 			uploadInput.removeEventListener('change', handleUpload);
 		};
 	}),
-		[isModalOpen];
+		[isUploadModalOpen];
 
 	useEffect(() => {
 		console.log('search term changed, func to filter list here');
@@ -72,14 +102,22 @@ function App() {
 	return (
 		<div className="App">
 			<div className="container">
-				{isModalOpen ? (
+				{isUploadModalOpen ? (
 					<UploadModal
-						setIsModalOpen={setIsModalOpen}
-						modalRef={modalRef}
+						setisUploadModalOpen={setisUploadModalOpen}
+						uploadModalRef={uploadModalRef}
 						setImageLabel={setImageLabel}
 						setImageURL={setImageURL}
 						submitPhoto={submitPhoto}
+						fileToUpload={fileToUpload}
 					></UploadModal>
+				) : null}
+				{isConfirmModalOpen ? (
+					<ConfirmModal
+						confirmModalRef={confirmModalRef}
+						confirmStatus={confirmStatus}
+						deletePassword={deletePassword}
+					></ConfirmModal>
 				) : null}
 				<nav>
 					<div className="nav-left">
@@ -106,8 +144,9 @@ function App() {
 						style={{ display: 'none' }}
 						id="uploadInput"
 						accept="image/*"
+						name="picture"
 					></input>
-					<button className="nav-upload" onClick={() => setIsModalOpen(true)}>
+					<button className="nav-upload" onClick={() => setisUploadModalOpen(true)}>
 						Add a photo
 					</button>
 				</nav>

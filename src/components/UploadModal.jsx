@@ -1,13 +1,14 @@
 const UploadModal = ({
-	setIsModalOpen,
-	modalRef,
+	setisUploadModalOpen,
+	uploadModalRef,
 	setImageLabel,
 	setImageURL,
   submitPhoto,
+	fileToUpload
 }) => {
 	return (
 		<div className="upload-modal">
-			<div className="upload-modal-inner" ref={modalRef}>
+			<div className="upload-modal-inner" ref={uploadModalRef}>
 				<h3>Add a new photo</h3>
 				<div className="input-container">
 					<p>Label</p>
@@ -34,14 +35,15 @@ const UploadModal = ({
 					<button
 						id="uploadBtn"
 						className="nav-upload"
-						onClick={() => setIsModalOpen(true)}
+						onClick={() => setisUploadModalOpen(true)}
 					>
 						Upload file
 					</button>
+					{fileToUpload ? <p>{fileToUpload.name}</p> : null}
 				</div>
 
 				<div className="button-container">
-					<button className="cancelBtn" onClick={() => setIsModalOpen(false)}>
+					<button className="cancelBtn" onClick={() => setisUploadModalOpen(false)}>
 						Cancel
 					</button>
 
