@@ -7,7 +7,8 @@ import ConfirmModal from './components/ConfirmModal';
 import './App.css';
 
 function App() {
-	const [imageLocations, setImageLocations] = useState([]);
+	const [imageData, setImageData] = useState([]);
+	const [imagesFiltered, setimagesFiltered] = useState([]);
 	const [searchTerm, setSearchTerm] = useState('');
 	const [isUploadModalOpen, setisUploadModalOpen] = useState(false);
 	const [imageLabel, setImageLabel] = useState('');
@@ -21,12 +22,11 @@ function App() {
 	});
 	const confirmModalRef = useOnclickOutside(() => {
 		setIsConfirmModalOpen(false);
-	})
+	});
 
 	const fetcher = async () => {
-		axios.get('http://localhost:5000/fetchgallery').then((res) => {
-			setImageLocations(res.data);
-			console.log(res.data);
+		axios.get('http://localhost:5000/images').then((res) => {
+			setImageData(res.data);
 		});
 	};
 
@@ -39,7 +39,7 @@ function App() {
 		if (fileToUpload) {
 			const formData = new FormData();
 			formData.append('picture', fileToUpload);
-			formData.append('tag', 'test');
+			formData.append('tag', imageLabel);
 			console.log(formData);
 			axios
 				.post('http://localhost:5000/imagefile', formData, {
@@ -96,7 +96,16 @@ function App() {
 		[isUploadModalOpen];
 
 	useEffect(() => {
-		console.log('search term changed, func to filter list here');
+		if (searchTerm === '') {
+			return;
+		}
+		const newData = [];
+		imageData.forEach((item) => {
+			if (item.tag.toLowerCase().includes(searchTerm.toLowerCase())) {
+				newData.push(item);
+			}
+		});
+		setimagesFiltered(newData);
 	}, [searchTerm]);
 
 	return (
@@ -146,16 +155,27 @@ function App() {
 						accept="image/*"
 						name="picture"
 					></input>
-					<button className="nav-upload" onClick={() => setisUploadModalOpen(true)}>
+					<button
+						className="nav-upload"
+						onClick={() => setisUploadModalOpen(true)}
+					>
 						Add a photo
 					</button>
 				</nav>
 				<button onClick={fetcher}>FETCH TEST</button>
 				<div id="gallery-container">
-					{/* {imageLocations.map((location, i) => {
-					return <Card url={location} key={i}></Card>
-				})} */}
-					<Card
+					{searchTerm === ''
+						? imageData.map((item) => {
+								return (
+									<Card url={item.url} tag={item.tag} key={item.id}></Card>
+								);
+						  })
+						: imagesFiltered.map((item, i) => {
+								return (
+									<Card url={item.url} tag={item.tag} key={item.id}></Card>
+								);
+						  })}
+					{/* <Card
 						url="./testphotos/abigail-clarke-DJqq1joT0S8-unsplash.jpg"
 						tag="uno"
 					></Card>
@@ -182,7 +202,7 @@ function App() {
 					<Card
 						url="./testphotos/axp-photography-82ytaqqwIpw-unsplash.jpg"
 						tag="articuno pokemon"
-					></Card>
+					></Card> */}
 				</div>
 			</div>
 		</div>
