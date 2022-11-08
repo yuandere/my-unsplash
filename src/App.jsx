@@ -4,29 +4,42 @@ import useOnclickOutside from 'react-cool-onclickoutside';
 import Card from './components/Card';
 import UploadModal from './components/UploadModal';
 import ConfirmModal from './components/ConfirmModal';
+import DeleteModal from './components/DeleteModal';
 import './App.css';
 
 function App() {
 	const [imageData, setImageData] = useState([]);
 	const [imagesFiltered, setimagesFiltered] = useState([]);
 	const [searchTerm, setSearchTerm] = useState('');
-	const [isUploadModalOpen, setisUploadModalOpen] = useState(false);
+	const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
 	const [imageLabel, setImageLabel] = useState('');
 	const [imageURL, setImageURL] = useState('');
 	const [fileToUpload, setFileToUpload] = useState(null);
 	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 	const [confirmStatus, setConfirmStatus] = useState(null);
 	const [deletePassword, setDeletePassword] = useState(null);
+	const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+	const [deletePasswordGuess, setDeletePasswordGuess] = useState(null);
+	const [deleteStatus, setDeleteStatus] = useState(null);
+	const [toDeleteId, setToDeleteId] = useState(null);
 	const uploadModalRef = useOnclickOutside(() => {
-		setisUploadModalOpen(false);
+		uploadInput.value = '';
+		setFileToUpload(null);
+		setIsUploadModalOpen(false);
 	});
 	const confirmModalRef = useOnclickOutside(() => {
 		setIsConfirmModalOpen(false);
+		setConfirmStatus(null);
+	});
+	const deleteModalRef = useOnclickOutside(() => {
+		setIsDeleteModalOpen(false);
+		setDeleteStatus(null);
 	});
 
 	const fetcher = async () => {
 		axios.get('http://localhost:5000/images').then((res) => {
-			setImageData(res.data);
+			setImageData(res.data.reverse());
+			document.documentElement.style.setProperty('--items', res.data.length);
 		});
 	};
 
@@ -49,11 +62,14 @@ function App() {
 				})
 				.then((res) => {
 					console.log('success:', res.data);
-					setisUploadModalOpen(false);
+					setDeletePassword(res.data[0].password);
+					setIsUploadModalOpen(false);
+					setConfirmStatus('success');
 					setIsConfirmModalOpen(true);
 				})
 				.catch((err) => {
 					console.log('error:', err);
+					setConfirmStatus('error');
 					setIsConfirmModalOpen(true);
 				});
 		} else {
@@ -66,14 +82,39 @@ function App() {
 				})
 				.then((res) => {
 					console.log('success:', res.data);
-					setisUploadModalOpen(false);
+					setDeletePassword(res.data[0].password);
+					setIsUploadModalOpen(false);
+					setConfirmStatus('success');
 					setIsConfirmModalOpen(true);
 				})
 				.catch((err) => {
 					console.log('error:', err);
+					setConfirmStatus('error');
 					setIsConfirmModalOpen(true);
 				});
 		}
+	};
+
+	const submitPassword = async () => {
+		axios
+			.delete(`http://localhost:5000/images/${toDeleteId}`, {
+				data: {
+					password: deletePasswordGuess,
+				},
+			})
+			.then((res) => {
+				console.log('success', res.data);
+				setDeleteStatus('success');
+			})
+			.catch((err) => {
+				if (err.response.status === 403) {
+					console.log('failure', err.response.data);
+					setDeleteStatus('incorrect');
+				} else {
+					setDeleteStatus('error');
+					throw err;
+				}
+			});
 	};
 
 	useEffect(() => {
@@ -92,8 +133,7 @@ function App() {
 			});
 			uploadInput.removeEventListener('change', handleUpload);
 		};
-	}),
-		[isUploadModalOpen];
+	}, [isUploadModalOpen]);
 
 	useEffect(() => {
 		if (searchTerm === '') {
@@ -113,7 +153,7 @@ function App() {
 			<div className="container">
 				{isUploadModalOpen ? (
 					<UploadModal
-						setisUploadModalOpen={setisUploadModalOpen}
+						setIsUploadModalOpen={setIsUploadModalOpen}
 						uploadModalRef={uploadModalRef}
 						setImageLabel={setImageLabel}
 						setImageURL={setImageURL}
@@ -124,9 +164,22 @@ function App() {
 				{isConfirmModalOpen ? (
 					<ConfirmModal
 						confirmModalRef={confirmModalRef}
+						setIsConfirmModalOpen={setIsConfirmModalOpen}
 						confirmStatus={confirmStatus}
+						setConfirmStatus={setConfirmStatus}
 						deletePassword={deletePassword}
 					></ConfirmModal>
+				) : null}
+				{isDeleteModalOpen ? (
+					<DeleteModal
+						deleteModalRef={deleteModalRef}
+						setIsDeleteModalOpen={setIsDeleteModalOpen}
+						setDeletePasswordGuess={setDeletePasswordGuess}
+						deleteStatus={deleteStatus}
+						setDeleteStatus={setDeleteStatus}
+						submitPassword={submitPassword}
+						toDeleteId={toDeleteId}
+					></DeleteModal>
 				) : null}
 				<nav>
 					<div className="nav-left">
@@ -157,7 +210,7 @@ function App() {
 					></input>
 					<button
 						className="nav-upload"
-						onClick={() => setisUploadModalOpen(true)}
+						onClick={() => setIsUploadModalOpen(true)}
 					>
 						Add a photo
 					</button>
@@ -167,12 +220,26 @@ function App() {
 					{searchTerm === ''
 						? imageData.map((item) => {
 								return (
-									<Card url={item.url} tag={item.tag} key={item.id}></Card>
+									<Card
+										url={item.url}
+										tag={item.tag}
+										key={item.id}
+										id={item.id}
+										setIsDeleteModalOpen={setIsDeleteModalOpen}
+										setToDeleteId={setToDeleteId}
+									></Card>
 								);
 						  })
 						: imagesFiltered.map((item, i) => {
 								return (
-									<Card url={item.url} tag={item.tag} key={item.id}></Card>
+									<Card
+										url={item.url}
+										tag={item.tag}
+										key={item.id}
+										id={item.id}
+										setIsDeleteModalOpen={setIsDeleteModalOpen}
+										setToDeleteId={setToDeleteId}
+									></Card>
 								);
 						  })}
 					{/* <Card

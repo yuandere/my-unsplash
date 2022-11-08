@@ -1,5 +1,5 @@
 const UploadModal = ({
-	setisUploadModalOpen,
+	setIsUploadModalOpen,
 	uploadModalRef,
 	setImageLabel,
 	setImageURL,
@@ -25,7 +25,6 @@ const UploadModal = ({
 						<p>Photo URL</p>
 						<input
 							type="text"
-							maxLength={200}
 							size={28}
 							onChange={(e) => setImageURL(e.target.value)}
 							placeholder="images.google.com"
@@ -35,7 +34,6 @@ const UploadModal = ({
 					<button
 						id="uploadBtn"
 						className="nav-upload"
-						onClick={() => setisUploadModalOpen(true)}
 					>
 						Upload file
 					</button>
@@ -43,7 +41,7 @@ const UploadModal = ({
 				</div>
 
 				<div className="button-container">
-					<button className="cancelBtn" onClick={() => setisUploadModalOpen(false)}>
+					<button className="cancelBtn" onClick={() => setIsUploadModalOpen(false)}>
 						Cancel
 					</button>
 

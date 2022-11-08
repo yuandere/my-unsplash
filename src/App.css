@@ -192,11 +192,10 @@ nav {
   overflow: hidden;
   position: relative;
 }
-#gallery-container .card-container:hover .card-overlay {
+#gallery-container .card-container:hover .card-overlay, #gallery-container .card-container:hover .card-details, #gallery-container .card-container:hover .card-delete {
   opacity: 1;
 }
 #gallery-container .card-container:hover .card-details {
-  opacity: 1;
   top: 90%;
 }
 #gallery-container .card-container .card-overlay {
@@ -212,57 +211,132 @@ nav {
   opacity: 0;
   transition: all 0.3s ease-in-out 0s;
 }
-#gallery-container .card-container .card-details {
+#gallery-container .card-container .card-details,
+#gallery-container .card-container .card-delete {
   z-index: 9;
   position: absolute;
   width: 100%;
+  opacity: 0;
+  transition: all 0.2s ease-in-out 0s;
+}
+#gallery-container .card-container .card-details {
   top: 100%;
   left: 50%;
   color: white;
-  text-align: center;
-  opacity: 0;
   transform: translate(-50%, -50%);
-  transition: all 0.2s ease-in-out 0s;
+  text-align: center;
+}
+#gallery-container .card-container .card-delete {
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+#gallery-container .card-container .card-delete span {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.75);
+  top: 1rem;
+  right: 1rem;
+  transition: color 0.1s ease-in-out 0s;
+}
+#gallery-container .card-container .card-delete span:hover {
+  color: white;
+  cursor: pointer;
 }
 #gallery-container .card-container:nth-child(1) {
-  height: 573px;
-  line-height: 573px;
+  height: 445px;
+  line-height: 445px;
 }
 #gallery-container .card-container:nth-child(2) {
-  height: 454px;
-  line-height: 454px;
+  height: 384px;
+  line-height: 384px;
 }
 #gallery-container .card-container:nth-child(3) {
-  height: 304px;
-  line-height: 304px;
+  height: 363px;
+  line-height: 363px;
 }
 #gallery-container .card-container:nth-child(4) {
-  height: 413px;
-  line-height: 413px;
+  height: 445px;
+  line-height: 445px;
 }
 #gallery-container .card-container:nth-child(5) {
-  height: 453px;
-  line-height: 453px;
+  height: 389px;
+  line-height: 389px;
 }
 #gallery-container .card-container:nth-child(6) {
-  height: 431px;
-  line-height: 431px;
+  height: 269px;
+  line-height: 269px;
 }
 #gallery-container .card-container:nth-child(7) {
-  height: 338px;
-  line-height: 338px;
+  height: 317px;
+  line-height: 317px;
 }
 #gallery-container .card-container:nth-child(8) {
-  height: 421px;
-  line-height: 421px;
+  height: 479px;
+  line-height: 479px;
 }
 #gallery-container .card-container:nth-child(9) {
-  height: 537px;
-  line-height: 537px;
+  height: 275px;
+  line-height: 275px;
 }
 #gallery-container .card-container:nth-child(10) {
-  height: 293px;
-  line-height: 293px;
+  height: 287px;
+  line-height: 287px;
+}
+#gallery-container .card-container:nth-child(11) {
+  height: 546px;
+  line-height: 546px;
+}
+#gallery-container .card-container:nth-child(12) {
+  height: 354px;
+  line-height: 354px;
+}
+#gallery-container .card-container:nth-child(13) {
+  height: 340px;
+  line-height: 340px;
+}
+#gallery-container .card-container:nth-child(14) {
+  height: 255px;
+  line-height: 255px;
+}
+#gallery-container .card-container:nth-child(15) {
+  height: 571px;
+  line-height: 571px;
+}
+#gallery-container .card-container:nth-child(16) {
+  height: 276px;
+  line-height: 276px;
+}
+#gallery-container .card-container:nth-child(17) {
+  height: 310px;
+  line-height: 310px;
+}
+#gallery-container .card-container:nth-child(18) {
+  height: 450px;
+  line-height: 450px;
+}
+#gallery-container .card-container:nth-child(19) {
+  height: 590px;
+  line-height: 590px;
+}
+#gallery-container .card-container:nth-child(20) {
+  height: 557px;
+  line-height: 557px;
+}
+#gallery-container .card-container:nth-child(21) {
+  height: 516px;
+  line-height: 516px;
+}
+#gallery-container .card-container:nth-child(22) {
+  height: 277px;
+  line-height: 277px;
+}
+#gallery-container .card-container:nth-child(23) {
+  height: 493px;
+  line-height: 493px;
+}
+#gallery-container .card-container:nth-child(24) {
+  height: 280px;
+  line-height: 280px;
 }
 
 .card-img {
