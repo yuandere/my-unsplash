@@ -9,11 +9,11 @@ const ConfirmModal = ({
 		<div className="upload-modal">
 			{confirmStatus === 'success' ? (
 				<div
-					className="upload-modal-inner modal--success"
+					className="upload-modal-inner confirm-modal modal--success"
 					ref={confirmModalRef}
 				>
 					<h3>Your image has been added!</h3>
-					<h3>Password to delete: {deletePassword}</h3>
+					<p>Password to delete: <span>{deletePassword}</span></p>
 					<div className="button-container">
 						<button
 							className="cancelBtn"
@@ -27,7 +27,7 @@ const ConfirmModal = ({
 					</div>
 				</div>
 			) : (
-				<div className="upload-modal-inner modal--error" ref={confirmModalRef}>
+				<div className="upload-modal-inner confirm-modal modal--error" ref={confirmModalRef}>
 					<h3>Something went wrong, please try again later</h3>
 					<div className="button-container">
 						<button

@@ -134,12 +134,14 @@ nav {
 .upload-modal-inner h3 {
   align-self: flex-start;
   font-weight: 500;
+  margin-left: 1.25rem;
   margin-bottom: 0.25rem;
 }
 .upload-modal-inner .input-container {
-  margin: 0.25rem auto;
+  margin: 0.25rem 1.25rem;
 }
 .upload-modal-inner .input-container p {
+  align-self: flex-start;
   font-size: 12px;
   font-weight: 500;
   margin: 0;
@@ -155,6 +157,12 @@ nav {
 .upload-modal-inner .upload-options {
   border-radius: 10px;
   background: lightblue;
+  border: 3px dashed var(--blue-1);
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
 }
 .upload-modal-inner .button-container {
   align-self: flex-end;
@@ -162,6 +170,24 @@ nav {
 }
 .upload-modal-inner .button-container button {
   font-size: 13px;
+}
+
+.confirm-modal {
+  padding-top: 1rem;
+}
+.confirm-modal p {
+  align-self: flex-start;
+  margin-left: 1rem;
+}
+.confirm-modal p span {
+  font-weight: 600;
+}
+.confirm-modal h3 {
+  margin: 1rem;
+}
+
+.modal--success {
+  border: 4px solid var(--green-1);
 }
 
 .cancelBtn {
@@ -243,100 +269,100 @@ nav {
   cursor: pointer;
 }
 #gallery-container .card-container:nth-child(1) {
-  height: 445px;
-  line-height: 445px;
+  height: 371px;
+  line-height: 371px;
 }
 #gallery-container .card-container:nth-child(2) {
-  height: 384px;
-  line-height: 384px;
+  height: 388px;
+  line-height: 388px;
 }
 #gallery-container .card-container:nth-child(3) {
-  height: 363px;
-  line-height: 363px;
+  height: 346px;
+  line-height: 346px;
 }
 #gallery-container .card-container:nth-child(4) {
-  height: 445px;
-  line-height: 445px;
+  height: 325px;
+  line-height: 325px;
 }
 #gallery-container .card-container:nth-child(5) {
-  height: 389px;
-  line-height: 389px;
+  height: 305px;
+  line-height: 305px;
 }
 #gallery-container .card-container:nth-child(6) {
-  height: 269px;
-  line-height: 269px;
+  height: 443px;
+  line-height: 443px;
 }
 #gallery-container .card-container:nth-child(7) {
-  height: 317px;
-  line-height: 317px;
+  height: 568px;
+  line-height: 568px;
 }
 #gallery-container .card-container:nth-child(8) {
-  height: 479px;
-  line-height: 479px;
+  height: 288px;
+  line-height: 288px;
 }
 #gallery-container .card-container:nth-child(9) {
-  height: 275px;
-  line-height: 275px;
+  height: 432px;
+  line-height: 432px;
 }
 #gallery-container .card-container:nth-child(10) {
-  height: 287px;
-  line-height: 287px;
+  height: 297px;
+  line-height: 297px;
 }
 #gallery-container .card-container:nth-child(11) {
-  height: 546px;
-  line-height: 546px;
-}
-#gallery-container .card-container:nth-child(12) {
-  height: 354px;
-  line-height: 354px;
-}
-#gallery-container .card-container:nth-child(13) {
-  height: 340px;
-  line-height: 340px;
-}
-#gallery-container .card-container:nth-child(14) {
   height: 255px;
   line-height: 255px;
 }
+#gallery-container .card-container:nth-child(12) {
+  height: 267px;
+  line-height: 267px;
+}
+#gallery-container .card-container:nth-child(13) {
+  height: 414px;
+  line-height: 414px;
+}
+#gallery-container .card-container:nth-child(14) {
+  height: 417px;
+  line-height: 417px;
+}
 #gallery-container .card-container:nth-child(15) {
-  height: 571px;
-  line-height: 571px;
+  height: 485px;
+  line-height: 485px;
 }
 #gallery-container .card-container:nth-child(16) {
-  height: 276px;
-  line-height: 276px;
+  height: 258px;
+  line-height: 258px;
 }
 #gallery-container .card-container:nth-child(17) {
-  height: 310px;
-  line-height: 310px;
+  height: 475px;
+  line-height: 475px;
 }
 #gallery-container .card-container:nth-child(18) {
-  height: 450px;
-  line-height: 450px;
+  height: 330px;
+  line-height: 330px;
 }
 #gallery-container .card-container:nth-child(19) {
-  height: 590px;
-  line-height: 590px;
+  height: 521px;
+  line-height: 521px;
 }
 #gallery-container .card-container:nth-child(20) {
-  height: 557px;
-  line-height: 557px;
+  height: 369px;
+  line-height: 369px;
 }
 #gallery-container .card-container:nth-child(21) {
-  height: 516px;
-  line-height: 516px;
+  height: 561px;
+  line-height: 561px;
 }
 #gallery-container .card-container:nth-child(22) {
-  height: 277px;
-  line-height: 277px;
+  height: 593px;
+  line-height: 593px;
 }
 #gallery-container .card-container:nth-child(23) {
-  height: 493px;
-  line-height: 493px;
+  height: 483px;
+  line-height: 483px;
 }
 #gallery-container .card-container:nth-child(24) {
-  height: 280px;
-  line-height: 280px;
+  height: 585px;
+  line-height: 585px;
 }
 
 .card-img {

@@ -142,11 +142,14 @@ nav {
 	h3 {
 		align-self: flex-start;
 		font-weight: 500;
+		margin-left: 1.25rem;
 		margin-bottom: 0.25rem;
 	}
 	.input-container {
-		margin: 0.25rem auto;
+		margin: 0.25rem 1.25rem;
+
 		p {
+			align-self: flex-start;
 			font-size: 12px;
 			font-weight: 500;
 			margin: 0;
@@ -163,6 +166,12 @@ nav {
 	.upload-options {
 		border-radius: 10px;
 		background: lightblue;
+		border: 3px dashed var(--blue-1);
+		display: flex;
+		flex-direction: column;
+		margin-top: 0.5rem;
+		padding-top: 0.5rem;
+		padding-bottom: 1rem;
 	}
 	.button-container {
 		align-self: flex-end;
@@ -172,6 +181,24 @@ nav {
 		}
 	}
 
+}
+
+.confirm-modal {
+	padding-top: 1rem;
+	p {
+		align-self: flex-start;
+		margin-left: 1rem;
+		span {
+			font-weight: 600;
+		}
+	}
+	h3 {
+		margin: 1rem;
+	}
+}
+
+.modal--success {
+	border: 4px solid var(--green-1);
 }
 
 .cancelBtn {

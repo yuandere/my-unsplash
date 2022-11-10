@@ -67,7 +67,7 @@ const DeleteModal = ({
                 setDeleteStatus(null);
               }}
 						>
-							Okay
+							Close
 						</button>
 				</div>
 			) : (
@@ -80,7 +80,7 @@ const DeleteModal = ({
                 setDeleteStatus(null);
               }}
 						>
-							Okay
+							Close
 						</button>
 				</div>
       )}
