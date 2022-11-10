@@ -39,12 +39,12 @@ function App() {
 	const fetcher = async () => {
 		axios.get('http://localhost:5000/images').then((res) => {
 			setImageData(res.data.reverse());
-			document.documentElement.style.setProperty('--items', res.data.length);
+			// document.documentElement.style.setProperty('--items', res.data.length);
 		});
 	};
 
 	const handleUpload = () => {
-		console.log(uploadInput.files[0]);
+		console.log('file added:', uploadInput.files[0]);
 		setFileToUpload(uploadInput.files[0]);
 	};
 
@@ -66,6 +66,7 @@ function App() {
 					setIsUploadModalOpen(false);
 					setConfirmStatus('success');
 					setIsConfirmModalOpen(true);
+					fetcher();
 				})
 				.catch((err) => {
 					console.log('error:', err);
@@ -86,6 +87,7 @@ function App() {
 					setIsUploadModalOpen(false);
 					setConfirmStatus('success');
 					setIsConfirmModalOpen(true);
+					fetcher();
 				})
 				.catch((err) => {
 					console.log('error:', err);
@@ -103,8 +105,9 @@ function App() {
 				},
 			})
 			.then((res) => {
-				console.log('success', res.data);
+				console.log('success:', res.data);
 				setDeleteStatus('success');
+				fetcher();
 			})
 			.catch((err) => {
 				if (err.response.status === 403) {
@@ -116,6 +119,10 @@ function App() {
 				}
 			});
 	};
+
+	useEffect(() => {
+		fetcher()
+	}, [])
 
 	useEffect(() => {
 		if (!isUploadModalOpen) {
@@ -215,7 +222,7 @@ function App() {
 						Add a photo
 					</button>
 				</nav>
-				<button onClick={fetcher}>FETCH TEST</button>
+				{/* <button onClick={fetcher}>FETCH TEST</button> */}
 				<div id="gallery-container">
 					{searchTerm === ''
 						? imageData.map((item) => {
@@ -230,7 +237,7 @@ function App() {
 									></Card>
 								);
 						  })
-						: imagesFiltered.map((item, i) => {
+						: imagesFiltered.map((item) => {
 								return (
 									<Card
 										url={item.url}
@@ -242,34 +249,6 @@ function App() {
 									></Card>
 								);
 						  })}
-					{/* <Card
-						url="./testphotos/abigail-clarke-DJqq1joT0S8-unsplash.jpg"
-						tag="uno"
-					></Card>
-					<Card
-						url="./testphotos/eugene-golovesov-cG0sK2W6qw0-unsplash.jpg"
-						tag="uno dos"
-					></Card>
-					<Card
-						url="./testphotos/mahdi-bafande-QztDBCtOVLQ-unsplash.jpg"
-						tag="unodos dos"
-					></Card>
-					<Card
-						url="./testphotos/max-harlynking-vi0pHtiYjuo-unsplash.jpg"
-						tag="uno dos tres"
-					></Card>
-					<Card
-						url="./testphotos/parrish-freeman-7wuGwjDYvPU-unsplash.jpg"
-						tag="zapdos pokemon"
-					></Card>
-					<Card
-						url="./testphotos/pramod-tiwari-r49BEjNs3uQ-unsplash.jpg"
-						tag="moltres pokemon"
-					></Card>
-					<Card
-						url="./testphotos/axp-photography-82ytaqqwIpw-unsplash.jpg"
-						tag="articuno pokemon"
-					></Card> */}
 				</div>
 			</div>
 		</div>
