@@ -35,6 +35,7 @@
 .App {
   width: 100vw;
   height: 95vh;
+  overflow-x: hidden;
 }
 
 .container,
@@ -157,7 +158,7 @@ nav {
 .upload-modal-inner .upload-options {
   border-radius: 10px;
   background: lightblue;
-  border: 3px dashed var(--blue-1);
+  border: 2px dashed var(--blue-1);
   display: flex;
   flex-direction: column;
   margin-top: 0.5rem;
@@ -186,8 +187,26 @@ nav {
   margin: 1rem;
 }
 
+.status-logo-container {
+  background: var(--green-1);
+  border-radius: 100%;
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  margin-top: 0.5rem;
+}
+.status-logo-container span {
+  color: white;
+  font-size: 48px;
+}
+
 .modal--success {
   border: 4px solid var(--green-1);
+}
+
+.modal--error {
+  border: 4px solid var(--red-1);
 }
 
 .cancelBtn {
@@ -269,100 +288,100 @@ nav {
   cursor: pointer;
 }
 #gallery-container .card-container:nth-child(1) {
-  height: 371px;
-  line-height: 371px;
+  height: 570px;
+  line-height: 570px;
 }
 #gallery-container .card-container:nth-child(2) {
-  height: 388px;
-  line-height: 388px;
+  height: 544px;
+  line-height: 544px;
 }
 #gallery-container .card-container:nth-child(3) {
-  height: 346px;
-  line-height: 346px;
+  height: 537px;
+  line-height: 537px;
 }
 #gallery-container .card-container:nth-child(4) {
-  height: 325px;
-  line-height: 325px;
+  height: 299px;
+  line-height: 299px;
 }
 #gallery-container .card-container:nth-child(5) {
+  height: 465px;
+  line-height: 465px;
+}
+#gallery-container .card-container:nth-child(6) {
+  height: 481px;
+  line-height: 481px;
+}
+#gallery-container .card-container:nth-child(7) {
+  height: 337px;
+  line-height: 337px;
+}
+#gallery-container .card-container:nth-child(8) {
+  height: 538px;
+  line-height: 538px;
+}
+#gallery-container .card-container:nth-child(9) {
+  height: 418px;
+  line-height: 418px;
+}
+#gallery-container .card-container:nth-child(10) {
+  height: 457px;
+  line-height: 457px;
+}
+#gallery-container .card-container:nth-child(11) {
+  height: 422px;
+  line-height: 422px;
+}
+#gallery-container .card-container:nth-child(12) {
+  height: 384px;
+  line-height: 384px;
+}
+#gallery-container .card-container:nth-child(13) {
   height: 305px;
   line-height: 305px;
 }
-#gallery-container .card-container:nth-child(6) {
-  height: 443px;
-  line-height: 443px;
-}
-#gallery-container .card-container:nth-child(7) {
-  height: 568px;
-  line-height: 568px;
-}
-#gallery-container .card-container:nth-child(8) {
-  height: 288px;
-  line-height: 288px;
-}
-#gallery-container .card-container:nth-child(9) {
-  height: 432px;
-  line-height: 432px;
-}
-#gallery-container .card-container:nth-child(10) {
-  height: 297px;
-  line-height: 297px;
-}
-#gallery-container .card-container:nth-child(11) {
-  height: 255px;
-  line-height: 255px;
-}
-#gallery-container .card-container:nth-child(12) {
-  height: 267px;
-  line-height: 267px;
-}
-#gallery-container .card-container:nth-child(13) {
-  height: 414px;
-  line-height: 414px;
-}
 #gallery-container .card-container:nth-child(14) {
-  height: 417px;
-  line-height: 417px;
+  height: 591px;
+  line-height: 591px;
 }
 #gallery-container .card-container:nth-child(15) {
-  height: 485px;
-  line-height: 485px;
+  height: 470px;
+  line-height: 470px;
 }
 #gallery-container .card-container:nth-child(16) {
-  height: 258px;
-  line-height: 258px;
+  height: 292px;
+  line-height: 292px;
 }
 #gallery-container .card-container:nth-child(17) {
-  height: 475px;
-  line-height: 475px;
+  height: 375px;
+  line-height: 375px;
 }
 #gallery-container .card-container:nth-child(18) {
-  height: 330px;
-  line-height: 330px;
+  height: 463px;
+  line-height: 463px;
 }
 #gallery-container .card-container:nth-child(19) {
-  height: 521px;
-  line-height: 521px;
+  height: 257px;
+  line-height: 257px;
 }
 #gallery-container .card-container:nth-child(20) {
-  height: 369px;
-  line-height: 369px;
+  height: 347px;
+  line-height: 347px;
 }
 #gallery-container .card-container:nth-child(21) {
-  height: 561px;
-  line-height: 561px;
+  height: 377px;
+  line-height: 377px;
 }
 #gallery-container .card-container:nth-child(22) {
-  height: 593px;
-  line-height: 593px;
+  height: 257px;
+  line-height: 257px;
 }
 #gallery-container .card-container:nth-child(23) {
-  height: 483px;
-  line-height: 483px;
+  height: 525px;
+  line-height: 525px;
 }
 #gallery-container .card-container:nth-child(24) {
-  height: 585px;
-  line-height: 585px;
+  height: 374px;
+  line-height: 374px;
 }
 
 .card-img {

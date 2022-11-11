@@ -12,8 +12,13 @@ const ConfirmModal = ({
 					className="upload-modal-inner confirm-modal modal--success"
 					ref={confirmModalRef}
 				>
-					<h3>Your image has been added!</h3>
-					<p>Password to delete: <span>{deletePassword}</span></p>
+					<div className="status-logo-container">
+						<span className="material-icons">
+							done
+						</span>
+					</div>
+					<h3 style={{margin: "1.25rem auto 0.5rem", alignSelf: "center"}}>Your image has been added!</h3>
+					<p style={{margin: "0.5rem 0 0",alignSelf: "center"}}>Password to delete: <span>{deletePassword}</span></p>
 					<div className="button-container">
 						<button
 							className="cancelBtn"

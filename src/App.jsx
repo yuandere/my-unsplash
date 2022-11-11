@@ -39,12 +39,11 @@ function App() {
 	const fetcher = async () => {
 		axios.get('http://localhost:5000/images').then((res) => {
 			setImageData(res.data.reverse());
-			// document.documentElement.style.setProperty('--items', res.data.length);
 		});
 	};
 
 	const handleUpload = () => {
-		console.log('file added:', uploadInput.files[0]);
+		// console.log('file added:', uploadInput.files[0]);
 		setFileToUpload(uploadInput.files[0]);
 	};
 
@@ -53,7 +52,7 @@ function App() {
 			const formData = new FormData();
 			formData.append('picture', fileToUpload);
 			formData.append('tag', imageLabel);
-			console.log(formData);
+			// console.log(formData);
 			axios
 				.post('http://localhost:5000/imagefile', formData, {
 					headers: {
@@ -61,11 +60,13 @@ function App() {
 					},
 				})
 				.then((res) => {
-					console.log('success:', res.data);
+					// console.log('success:', res.data);
 					setDeletePassword(res.data[0].password);
 					setIsUploadModalOpen(false);
 					setConfirmStatus('success');
 					setIsConfirmModalOpen(true);
+					setImageURL('');
+					setImageLabel('');
 					fetcher();
 				})
 				.catch((err) => {
@@ -82,11 +83,13 @@ function App() {
 					},
 				})
 				.then((res) => {
-					console.log('success:', res.data);
+					// console.log('success:', res.data);
 					setDeletePassword(res.data[0].password);
 					setIsUploadModalOpen(false);
 					setConfirmStatus('success');
 					setIsConfirmModalOpen(true);
+					setImageURL('');
+					setImageLabel('');
 					fetcher();
 				})
 				.catch((err) => {
@@ -105,13 +108,13 @@ function App() {
 				},
 			})
 			.then((res) => {
-				console.log('success:', res.data);
+				// console.log('success:', res.data);
 				setDeleteStatus('success');
 				fetcher();
 			})
 			.catch((err) => {
 				if (err.response.status === 403) {
-					console.log('failure', err.response.data);
+					// console.log('failure', err.response.data);
 					setDeleteStatus('incorrect');
 				} else {
 					setDeleteStatus('error');
@@ -164,6 +167,7 @@ function App() {
 						uploadModalRef={uploadModalRef}
 						setImageLabel={setImageLabel}
 						setImageURL={setImageURL}
+						imageURL={imageURL}
 						submitPhoto={submitPhoto}
 						fileToUpload={fileToUpload}
 					></UploadModal>
@@ -222,7 +226,6 @@ function App() {
 						Add a photo
 					</button>
 				</nav>
-				{/* <button onClick={fetcher}>FETCH TEST</button> */}
 				<div id="gallery-container">
 					{searchTerm === ''
 						? imageData.map((item) => {
