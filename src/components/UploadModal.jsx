@@ -39,6 +39,7 @@ const UploadModal = ({
 						size={22}
 						onChange={(e) => setImageLabel(e.target.value)}
 						placeholder="Suspendisse elit massa"
+						autoFocus
 					></input>
 				</div>
 				<div className="upload-options">

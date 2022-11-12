@@ -22,6 +22,7 @@ const DeleteModal = ({
 							onChange={(e) => {
 								setDeletePasswordGuess(e.target.value);
 							}}
+							autoFocus
 						></input>
 					</div>
 					<div className="button-container">
@@ -50,6 +51,7 @@ const DeleteModal = ({
 							onChange={(e) => {
 								setDeletePasswordGuess(e.target.value);
 							}}
+							autoFocus
 						></input>
 					</div>
 					<div className="button-container">
