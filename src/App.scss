@@ -327,3 +327,20 @@ nav {
 		align-self: center;
 	}
 }
+
+@media (width < 620) {
+	.container {
+		margin: 0 1.5rem;
+	}
+	nav {
+		display: inline-block;
+		.nav-search {
+			input {
+				size: 8;
+			}
+		}
+	}
+	.nav-logo {
+		display: flex;
+	}
+}
