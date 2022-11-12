@@ -37,7 +37,7 @@ function App() {
 	});
 
 	const fetcher = async () => {
-		axios.get('http://localhost:5000/images').then((res) => {
+		axios.get('https://my-unsplash-backend.onrender.com/images').then((res) => {
 			setImageData(res.data.reverse());
 		});
 	};
@@ -54,7 +54,7 @@ function App() {
 			formData.append('tag', imageLabel);
 			// console.log(formData);
 			axios
-				.post('http://localhost:5000/imagefile', formData, {
+				.post('https://my-unsplash-backend.onrender.com/imagefile', formData, {
 					headers: {
 						'Content-Type': 'multipart/form-data',
 					},
@@ -76,7 +76,7 @@ function App() {
 				});
 		} else {
 			axios
-				.post('http://localhost:5000/imageurl', {
+				.post('https://my-unsplash-backend.onrender.com/imageurl', {
 					data: {
 						tag: imageLabel,
 						url: imageURL,
@@ -102,7 +102,7 @@ function App() {
 
 	const submitPassword = async () => {
 		axios
-			.delete(`http://localhost:5000/images/${toDeleteId}`, {
+			.delete(`https://my-unsplash-backend.onrender.com/images/${toDeleteId}`, {
 				data: {
 					password: deletePasswordGuess,
 				},
