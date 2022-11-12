@@ -288,100 +288,100 @@ nav {
   cursor: pointer;
 }
 #gallery-container .card-container:nth-child(1) {
-  height: 593px;
-  line-height: 593px;
+  height: 521px;
+  line-height: 521px;
 }
 #gallery-container .card-container:nth-child(2) {
-  height: 575px;
-  line-height: 575px;
+  height: 489px;
+  line-height: 489px;
 }
 #gallery-container .card-container:nth-child(3) {
-  height: 577px;
-  line-height: 577px;
+  height: 597px;
+  line-height: 597px;
 }
 #gallery-container .card-container:nth-child(4) {
-  height: 319px;
-  line-height: 319px;
+  height: 488px;
+  line-height: 488px;
 }
 #gallery-container .card-container:nth-child(5) {
-  height: 596px;
-  line-height: 596px;
+  height: 490px;
+  line-height: 490px;
 }
 #gallery-container .card-container:nth-child(6) {
-  height: 332px;
-  line-height: 332px;
+  height: 283px;
+  line-height: 283px;
 }
 #gallery-container .card-container:nth-child(7) {
-  height: 474px;
-  line-height: 474px;
+  height: 375px;
+  line-height: 375px;
 }
 #gallery-container .card-container:nth-child(8) {
-  height: 561px;
-  line-height: 561px;
+  height: 456px;
+  line-height: 456px;
 }
 #gallery-container .card-container:nth-child(9) {
-  height: 583px;
-  line-height: 583px;
+  height: 435px;
+  line-height: 435px;
 }
 #gallery-container .card-container:nth-child(10) {
-  height: 307px;
-  line-height: 307px;
+  height: 471px;
+  line-height: 471px;
 }
 #gallery-container .card-container:nth-child(11) {
-  height: 253px;
-  line-height: 253px;
+  height: 306px;
+  line-height: 306px;
 }
 #gallery-container .card-container:nth-child(12) {
-  height: 453px;
-  line-height: 453px;
+  height: 286px;
+  line-height: 286px;
 }
 #gallery-container .card-container:nth-child(13) {
-  height: 457px;
-  line-height: 457px;
+  height: 415px;
+  line-height: 415px;
 }
 #gallery-container .card-container:nth-child(14) {
-  height: 565px;
-  line-height: 565px;
+  height: 322px;
+  line-height: 322px;
 }
 #gallery-container .card-container:nth-child(15) {
-  height: 413px;
-  line-height: 413px;
+  height: 342px;
+  line-height: 342px;
 }
 #gallery-container .card-container:nth-child(16) {
-  height: 382px;
-  line-height: 382px;
+  height: 547px;
+  line-height: 547px;
 }
 #gallery-container .card-container:nth-child(17) {
-  height: 483px;
-  line-height: 483px;
+  height: 279px;
+  line-height: 279px;
 }
 #gallery-container .card-container:nth-child(18) {
-  height: 546px;
-  line-height: 546px;
+  height: 541px;
+  line-height: 541px;
 }
 #gallery-container .card-container:nth-child(19) {
-  height: 474px;
-  line-height: 474px;
+  height: 304px;
+  line-height: 304px;
 }
 #gallery-container .card-container:nth-child(20) {
-  height: 326px;
-  line-height: 326px;
+  height: 344px;
+  line-height: 344px;
 }
 #gallery-container .card-container:nth-child(21) {
-  height: 559px;
-  line-height: 559px;
+  height: 571px;
+  line-height: 571px;
 }
 #gallery-container .card-container:nth-child(22) {
-  height: 522px;
-  line-height: 522px;
+  height: 481px;
+  line-height: 481px;
 }
 #gallery-container .card-container:nth-child(23) {
-  height: 324px;
-  line-height: 324px;
+  height: 467px;
+  line-height: 467px;
 }
 #gallery-container .card-container:nth-child(24) {
-  height: 352px;
-  line-height: 352px;
+  height: 291px;
+  line-height: 291px;
 }
 
 .card-img {
@@ -398,7 +398,7 @@ nav {
     align-self: center;
   }
 }
-@media (width < 620) {
+@media (width < 620px) {
   .container {
     margin: 0 1.5rem;
   }
