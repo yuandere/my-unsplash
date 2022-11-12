@@ -87,8 +87,10 @@ const UploadModal = ({
 					<button
 						className="nav-upload"
 						onClick={() => {
-							if (!isValidated(imageURL)) {
-								return;
+							if (!fileToUpload) {
+								if (!isValidated(imageURL)) {
+									return;
+								}
 							}
 							submitPhoto();
 						}}
