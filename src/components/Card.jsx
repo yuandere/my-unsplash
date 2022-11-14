@@ -1,6 +1,14 @@
 const Card = ({ url, tag, id, setIsDeleteModalOpen, setToDeleteId }) => {
 	return (
-		<div className="card-container">
+		<div
+			className="card-container"
+			onTouchStart={(e) => {
+				e.target.parentElement.classList.add('touched');
+				setTimeout(() => {
+					e.target.parentElement.classList.remove('touched');
+				}, 3000);
+			}}
+		>
 			<div className="card-overlay"></div>
 			<img className="card-img" src={url}></img>
 			<div className="card-details">
