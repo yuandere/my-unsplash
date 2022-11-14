@@ -22,6 +22,7 @@ function App() {
 	const [deletePasswordGuess, setDeletePasswordGuess] = useState(null);
 	const [deleteStatus, setDeleteStatus] = useState(null);
 	const [toDeleteId, setToDeleteId] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
 	const uploadModalRef = useOnclickOutside(() => {
 		uploadInput.value = '';
 		setFileToUpload(null);
@@ -37,9 +38,16 @@ function App() {
 	});
 
 	const fetcher = async () => {
-		axios.get('https://my-unsplash-backend.onrender.com/images').then((res) => {
-			setImageData(res.data.reverse());
-		});
+		setIsLoading(true);
+		axios
+			.get('https://my-unsplash-backend.onrender.com/images')
+			.then((res) => {
+				setImageData(res.data.reverse());
+				setIsLoading(false);
+			})
+			.catch((err) => {
+				console.log('error:', err);
+			});
 	};
 
 	const handleUpload = () => {
@@ -111,6 +119,7 @@ function App() {
 				// console.log('success:', res.data);
 				setDeleteStatus('success');
 				fetcher();
+				setSearchTerm('');
 			})
 			.catch((err) => {
 				if (err.response.status === 403) {
@@ -124,8 +133,8 @@ function App() {
 	};
 
 	useEffect(() => {
-		fetcher()
-	}, [])
+		fetcher();
+	}, []);
 
 	useEffect(() => {
 		if (!isUploadModalOpen) {
@@ -161,6 +170,11 @@ function App() {
 	return (
 		<div className="App">
 			<div className="container">
+				{isLoading ? (
+					<div className="upload-modal" style={{ background: 'none' }}>
+						<img className="spinner" src="./spinner.gif"></img>
+					</div>
+				) : null}
 				{isUploadModalOpen ? (
 					<UploadModal
 						setIsUploadModalOpen={setIsUploadModalOpen}
@@ -220,10 +234,16 @@ function App() {
 						name="picture"
 					></input>
 					<button
-						className="nav-upload"
+						className="nav-upload nav-upload--big"
 						onClick={() => setIsUploadModalOpen(true)}
 					>
 						Add a photo
+					</button>
+					<button
+						className="nav-upload nav-upload--small"
+						onClick={() => setIsUploadModalOpen(true)}
+					>
+						<span className="material-icons">upload_file</span>
 					</button>
 				</nav>
 				<div id="gallery-container">
