@@ -301,100 +301,100 @@ nav {
   top: 90%;
 }
 #gallery-container .card-container:nth-child(1) {
-  height: 546px;
-  line-height: 546px;
+  height: 478px;
+  line-height: 478px;
 }
 #gallery-container .card-container:nth-child(2) {
-  height: 513px;
-  line-height: 513px;
+  height: 532px;
+  line-height: 532px;
 }
 #gallery-container .card-container:nth-child(3) {
-  height: 396px;
-  line-height: 396px;
+  height: 442px;
+  line-height: 442px;
 }
 #gallery-container .card-container:nth-child(4) {
-  height: 567px;
-  line-height: 567px;
+  height: 573px;
+  line-height: 573px;
 }
 #gallery-container .card-container:nth-child(5) {
-  height: 277px;
-  line-height: 277px;
+  height: 454px;
+  line-height: 454px;
 }
 #gallery-container .card-container:nth-child(6) {
-  height: 589px;
-  line-height: 589px;
+  height: 315px;
+  line-height: 315px;
 }
 #gallery-container .card-container:nth-child(7) {
-  height: 409px;
-  line-height: 409px;
+  height: 445px;
+  line-height: 445px;
 }
 #gallery-container .card-container:nth-child(8) {
-  height: 264px;
-  line-height: 264px;
-}
-#gallery-container .card-container:nth-child(9) {
-  height: 599px;
-  line-height: 599px;
-}
-#gallery-container .card-container:nth-child(10) {
-  height: 295px;
-  line-height: 295px;
-}
-#gallery-container .card-container:nth-child(11) {
-  height: 354px;
-  line-height: 354px;
-}
-#gallery-container .card-container:nth-child(12) {
-  height: 332px;
-  line-height: 332px;
-}
-#gallery-container .card-container:nth-child(13) {
-  height: 375px;
-  line-height: 375px;
-}
-#gallery-container .card-container:nth-child(14) {
-  height: 502px;
-  line-height: 502px;
-}
-#gallery-container .card-container:nth-child(15) {
-  height: 312px;
-  line-height: 312px;
-}
-#gallery-container .card-container:nth-child(16) {
-  height: 294px;
-  line-height: 294px;
-}
-#gallery-container .card-container:nth-child(17) {
-  height: 260px;
-  line-height: 260px;
-}
-#gallery-container .card-container:nth-child(18) {
-  height: 457px;
-  line-height: 457px;
-}
-#gallery-container .card-container:nth-child(19) {
-  height: 371px;
-  line-height: 371px;
-}
-#gallery-container .card-container:nth-child(20) {
   height: 322px;
   line-height: 322px;
 }
+#gallery-container .card-container:nth-child(9) {
+  height: 323px;
+  line-height: 323px;
+}
+#gallery-container .card-container:nth-child(10) {
+  height: 513px;
+  line-height: 513px;
+}
+#gallery-container .card-container:nth-child(11) {
+  height: 525px;
+  line-height: 525px;
+}
+#gallery-container .card-container:nth-child(12) {
+  height: 331px;
+  line-height: 331px;
+}
+#gallery-container .card-container:nth-child(13) {
+  height: 379px;
+  line-height: 379px;
+}
+#gallery-container .card-container:nth-child(14) {
+  height: 312px;
+  line-height: 312px;
+}
+#gallery-container .card-container:nth-child(15) {
+  height: 481px;
+  line-height: 481px;
+}
+#gallery-container .card-container:nth-child(16) {
+  height: 423px;
+  line-height: 423px;
+}
+#gallery-container .card-container:nth-child(17) {
+  height: 277px;
+  line-height: 277px;
+}
+#gallery-container .card-container:nth-child(18) {
+  height: 531px;
+  line-height: 531px;
+}
+#gallery-container .card-container:nth-child(19) {
+  height: 355px;
+  line-height: 355px;
+}
+#gallery-container .card-container:nth-child(20) {
+  height: 331px;
+  line-height: 331px;
+}
 #gallery-container .card-container:nth-child(21) {
-  height: 392px;
-  line-height: 392px;
+  height: 506px;
+  line-height: 506px;
 }
 #gallery-container .card-container:nth-child(22) {
-  height: 589px;
-  line-height: 589px;
+  height: 357px;
+  line-height: 357px;
 }
 #gallery-container .card-container:nth-child(23) {
   height: 395px;
   line-height: 395px;
 }
 #gallery-container .card-container:nth-child(24) {
-  height: 450px;
-  line-height: 450px;
+  height: 399px;
+  line-height: 399px;
 }
 
 .card-img {
@@ -455,5 +455,12 @@ nav {
   }
   .card-container {
     margin-bottom: 1rem !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  input,
+.upload-modal-inner,
+.upload-options {
+    background: #242424;
   }
 }/*# sourceMappingURL=App.css.map */

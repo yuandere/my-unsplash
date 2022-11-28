@@ -396,3 +396,11 @@ nav {
 		margin-bottom: 1rem !important;
 	}
 }
+
+@media (prefers-color-scheme: dark) {
+	input,
+	.upload-modal-inner,
+	.upload-options {
+		background: #242424;
+	}
+} 
