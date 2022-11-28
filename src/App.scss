@@ -345,14 +345,14 @@ nav {
 	height: 150px;
 }
 
-@media (width > 1024px) {
+@media only screen and (min-width: 1024px) {
 	#gallery-container {
 		width: 80%;
 		align-self: center;
 	}
 }
 
-@media (width < 768px) {
+@media only screen and (max-width: 768px) {
 	.nav-upload--big {
 		display: none
 	}
@@ -366,7 +366,7 @@ nav {
 	}
 }
 
-@media (width < 620px) {
+@media only screen and (max-width: 620px) {
 	.container {
 		margin: 0 1.5rem;
 	}

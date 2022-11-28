@@ -301,100 +301,100 @@ nav {
   top: 90%;
 }
 #gallery-container .card-container:nth-child(1) {
-  height: 301px;
-  line-height: 301px;
+  height: 546px;
+  line-height: 546px;
 }
 #gallery-container .card-container:nth-child(2) {
-  height: 537px;
-  line-height: 537px;
+  height: 513px;
+  line-height: 513px;
 }
 #gallery-container .card-container:nth-child(3) {
-  height: 328px;
-  line-height: 328px;
+  height: 396px;
+  line-height: 396px;
 }
 #gallery-container .card-container:nth-child(4) {
-  height: 521px;
-  line-height: 521px;
+  height: 567px;
+  line-height: 567px;
 }
 #gallery-container .card-container:nth-child(5) {
+  height: 277px;
+  line-height: 277px;
+}
+#gallery-container .card-container:nth-child(6) {
+  height: 589px;
+  line-height: 589px;
+}
+#gallery-container .card-container:nth-child(7) {
+  height: 409px;
+  line-height: 409px;
+}
+#gallery-container .card-container:nth-child(8) {
+  height: 264px;
+  line-height: 264px;
+}
+#gallery-container .card-container:nth-child(9) {
+  height: 599px;
+  line-height: 599px;
+}
+#gallery-container .card-container:nth-child(10) {
+  height: 295px;
+  line-height: 295px;
+}
+#gallery-container .card-container:nth-child(11) {
+  height: 354px;
+  line-height: 354px;
+}
+#gallery-container .card-container:nth-child(12) {
+  height: 332px;
+  line-height: 332px;
+}
+#gallery-container .card-container:nth-child(13) {
+  height: 375px;
+  line-height: 375px;
+}
+#gallery-container .card-container:nth-child(14) {
+  height: 502px;
+  line-height: 502px;
+}
+#gallery-container .card-container:nth-child(15) {
   height: 312px;
   line-height: 312px;
 }
-#gallery-container .card-container:nth-child(6) {
+#gallery-container .card-container:nth-child(16) {
+  height: 294px;
+  line-height: 294px;
+}
+#gallery-container .card-container:nth-child(17) {
+  height: 260px;
+  line-height: 260px;
+}
+#gallery-container .card-container:nth-child(18) {
+  height: 457px;
+  line-height: 457px;
+}
+#gallery-container .card-container:nth-child(19) {
   height: 371px;
   line-height: 371px;
 }
-#gallery-container .card-container:nth-child(7) {
-  height: 398px;
-  line-height: 398px;
-}
-#gallery-container .card-container:nth-child(8) {
-  height: 553px;
-  line-height: 553px;
-}
-#gallery-container .card-container:nth-child(9) {
-  height: 559px;
-  line-height: 559px;
-}
-#gallery-container .card-container:nth-child(10) {
-  height: 526px;
-  line-height: 526px;
-}
-#gallery-container .card-container:nth-child(11) {
-  height: 445px;
-  line-height: 445px;
-}
-#gallery-container .card-container:nth-child(12) {
-  height: 594px;
-  line-height: 594px;
-}
-#gallery-container .card-container:nth-child(13) {
-  height: 291px;
-  line-height: 291px;
-}
-#gallery-container .card-container:nth-child(14) {
-  height: 520px;
-  line-height: 520px;
-}
-#gallery-container .card-container:nth-child(15) {
-  height: 337px;
-  line-height: 337px;
-}
-#gallery-container .card-container:nth-child(16) {
-  height: 539px;
-  line-height: 539px;
-}
-#gallery-container .card-container:nth-child(17) {
-  height: 261px;
-  line-height: 261px;
-}
-#gallery-container .card-container:nth-child(18) {
-  height: 597px;
-  line-height: 597px;
-}
-#gallery-container .card-container:nth-child(19) {
-  height: 504px;
-  line-height: 504px;
-}
 #gallery-container .card-container:nth-child(20) {
-  height: 444px;
-  line-height: 444px;
+  height: 322px;
+  line-height: 322px;
 }
 #gallery-container .card-container:nth-child(21) {
-  height: 464px;
-  line-height: 464px;
+  height: 392px;
+  line-height: 392px;
 }
 #gallery-container .card-container:nth-child(22) {
-  height: 293px;
-  line-height: 293px;
+  height: 589px;
+  line-height: 589px;
 }
 #gallery-container .card-container:nth-child(23) {
-  height: 515px;
-  line-height: 515px;
+  height: 395px;
+  line-height: 395px;
 }
 #gallery-container .card-container:nth-child(24) {
-  height: 298px;
-  line-height: 298px;
+  height: 450px;
+  line-height: 450px;
 }
 
 .card-img {
@@ -410,13 +410,13 @@ nav {
   height: 150px;
 }
 
-@media (width > 1024px) {
+@media only screen and (min-width: 1024px) {
   #gallery-container {
     width: 80%;
     align-self: center;
   }
 }
-@media (width < 768px) {
+@media only screen and (max-width: 768px) {
   .nav-upload--big {
     display: none;
   }
@@ -429,7 +429,7 @@ nav {
     border-radius: 100%;
   }
 }
-@media (width < 620px) {
+@media only screen and (max-width: 620px) {
   .container {
     margin: 0 1.5rem;
   }
