@@ -53,7 +53,3 @@ This application/site was created as a submission to a [DevChallenges](https://d
 - [CSS Masonry Layout](https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/)
 - [CRUD REST API with NodeJS, Express, PostgresQL](https://blog.logrocket.com/crud-rest-api-node-js-express-postgresql/)
 
-## Contact
-
-- GitHub [@yuandere](https://github.com/yuandere)
-- Discord [@al doub#7487](https://discordapp.com)
